@@ -1,0 +1,22 @@
+{
+  "extends": ["tslint:recommended"],
+  // "rulesDirectory": "./tslint-rules",
+  "rules": {
+    "arrow-parens": false,
+    "interface-over-type-literal": false,
+    "interface-name": false,
+    "member-access": false,
+    "member-ordering": false,
+    "max-line-length": [true, 150],
+    "max-classes-per-file": false,
+    "no-console": false,
+    "no-namespace": false,
+    "noUnusedLocals": true,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "semicolon": false,
+    "trailing-comma": false,
+    // "strict-null-checks-of-nullable-number": true
+  },
+  "exclude": ["tslint-rules", "typings"]
+}
