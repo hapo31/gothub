@@ -2,5 +2,36 @@
   "name": "github-ext",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run watch",
+    "watch:local": "cross-env LOCAL=1 webpack-serve --config ./webpack.config.js",
+    "watch": "webpack --config ./webpack.config.js --mode development",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js --mode production",
+    "clean": "rm -rf extension & rm -rf debug"
+  },
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "styled-components": "^3.3.3",
+    "tslib": "^1.9.3"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.69",
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-redux": "^6.0.4",
+    "@types/redux": "^3.6.0",
+    "copy-webpack-plugin": "^4.5.2",
+    "cross-env": "^5.2.0",
+    "react-svg-loader": "^2.1.0",
+    "ts-loader": "^4.4.2",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-serve": "^2.0.2"
+  }
 }

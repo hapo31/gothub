@@ -11,7 +11,10 @@ const plugins = [
       from: path.join(__dirname, "assets/manifest.json"),
     },
     {
-      from: path.join(__dirname, "")
+      from: path.join(__dirname, "assets/popup.html")
+    },
+    {
+      from: path.join(__dirname, "assets/page.html")
     }
   ])
 ];
@@ -52,28 +55,28 @@ module.exports = {
 
 if (isDev && process.env.LOCAL) {
   const servePort = 8081;
-  const chokidar = require('chokidar');
+  const chokidar = require("chokidar");
   module.exports.mode = "development";
   module.exports.serve = {
-    content: [path.resolve(__dirname, './index.html')],
+    content: [path.resolve(__dirname, "./popup.html")],
 
     config: {},
     hot: {
-      host: 'localhost',
+      host: "localhost",
       port: servePort,
     },
     on: {
-      'listening': () => {
-        console.log('listening');
+      "listening": () => {
+        console.log("listening");
         const socket = new WebSocket(`ws://localhost:${servePort}`);
         const watchPath = __dirname;
         const options = {};
         const watcher = chokidar.watch(watchPath, options);
-        watcher.on('change', () => {
+        watcher.on("change", () => {
           const data = {
-            type: 'broadcast',
+            type: "broadcast",
             data: {
-              type: 'windreload',
+              type: "windreload",
               data: {},
             },
           };
