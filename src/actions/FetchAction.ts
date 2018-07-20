@@ -1,4 +1,4 @@
-import { GithubRepositoriesResponse } from "../api/github";
+import { GithubRepositoriesResponse } from "../api/Github";
 
 // FETCH
 export type FetchAction = {

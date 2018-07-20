@@ -1,9 +1,9 @@
 import { createStore } from "redux";
 
-import { GithubRepositoriesResponse } from "../api/github";
-import { Reducers } from "../reducers/RepositoryReducer";
+import { GithubRepositoriesResponse } from "../api/Github";
+import { repositoryReducer } from "../reducers/RepositoryReducer";
 
-let repositoryStore = createStore(Reducers.repositoryReducer);
+let repositoryStore = createStore(repositoryReducer);
 
 export interface RepositoryInfo {
   name: string;
@@ -23,7 +23,7 @@ export function generateRepositoryStateFromResponse(
     repositories: response.map(info => ({
       name: info.full_name,
       description: info.description || "",
-      url: info.git_url,
+      url: info.html_url,
       author: info.owner.login
     }))
   };

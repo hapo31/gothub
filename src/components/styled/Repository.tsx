@@ -6,6 +6,7 @@ const Box = styled.div`
   background-color: #fff;
   border: 1px solid #d1d5da;
   border-radius: 3px;
+  margin-bottom: 5px;
 `;
 
 const Title = styled.a`
@@ -24,9 +25,11 @@ type Props = {
   url: string;
 };
 
-const Repository: SFC<Props> = ({ author, name, description, url }) => (
+const Repository: SFC<Props> = ({ name, description, url }) => (
   <Box>
-    <Title href={url}>{name}</Title>
+    <Title target="_blank" href={url}>
+      {name}
+    </Title>
     <Description>{description}</Description>
   </Box>
 );

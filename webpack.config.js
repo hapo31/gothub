@@ -56,6 +56,7 @@ module.exports = {
 if (isDev && process.env.LOCAL) {
   const servePort = 8081;
   const chokidar = require("chokidar");
+  const WebSocket = require('ws')
   module.exports.mode = "development";
   module.exports.serve = {
     content: [path.resolve(__dirname, "./popup.html")],
